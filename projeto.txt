@@ -1,0 +1,7 @@
+edit main.cpp
+set number
+tabedit ppm.cpp
+tabedit ppm.hpp
+tabedit Makefile
+tabedit vec3.cpp 
+tabedit vec3.hpp 
