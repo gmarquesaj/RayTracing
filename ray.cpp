@@ -1,5 +1,8 @@
 #include "ray.hpp"
 
+void CONTATO::reflexo(RAY *raio){
+
+};
 CONTATO::CONTATO(bool toque,vec3 pos,vec3 normal):toque(toque),pos(pos),normal(normal)
 {};
 vec3 RAY::Em(float distancia){
