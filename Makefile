@@ -1,5 +1,5 @@
 comp = g++ -O3 
-all: ray.o main.o ppm.o vec3.o obj.o
+all: vec3.o ray.o main.o ppm.o obj.o
 	rm -f *.ppm *.png
 	clear
 	$(comp) obj.o ray.o main.o ppm.o vec3.o -o rtApp  && ./rtApp && ffmpeg -i img.ppm img.png -y 

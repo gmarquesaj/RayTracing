@@ -4,7 +4,7 @@
 
 float randomFloat()
 {
-	return (float)rand()/(float)(RAND_MAX+1);
+	return (float)rand()/(float)(RAND_MAX);
 }
 float randomFloatMinMax(float min,float max)
 {
