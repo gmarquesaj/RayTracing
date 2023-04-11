@@ -2,22 +2,11 @@
 #include<iostream>
 #include "vec3.hpp"
 
-float randomFloat()
-{
-	return (float)rand()/(float)(RAND_MAX);
-}
-float randomFloatMinMax(float min,float max)
-{
-	return min+(max-min)*randomFloat();
-};
+float randomFloat();
+float randomFloatMinMax(float min,float max);
+vec3 randomFloatVec3();
+vec3 randomFloatVec3MinMax(float min, float max);
+vec3 randomHemisphereDirection(vec3 normal);
 
-vec3 randomFloatVec3(){
-	return vec3(randomFloat(),randomFloat(),randomFloat());
-};
-
-vec3 randomFloatVec3MinMax(float min, float max)
-{
-	return vec3(randomFloatMinMax(min,max),randomFloatMinMax(min,max),randomFloatMinMax(min,max));
-}
 
 

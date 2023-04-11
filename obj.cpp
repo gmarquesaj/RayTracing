@@ -1,4 +1,23 @@
 #include "obj.hpp"
+
+
+vec3 OBJ:: normalToUV(vec3 normal)
+{
+	const float PI = 3.1415f;
+	float theta = acos(-normal.y);
+	float phi = atan(-(normal).x / (normal).z) + PI;
+	float ui = phi / (2.0f * PI);
+	float vi = theta / PI;
+	return vec3(ui,vi,0.0f);
+};
+//funciona como uma textura provisoria ate que seja implementado uma classe de texturas
+//desenha faixas/linhas na esfera
+vec3 OBJ:: corEm(float u, float v){
+	const int x = 500;
+	return ((int)(u*x)%10)<5  || ((int)(v*x)%15)<5 ?vec3(0,0,0):vec3(0.9,0.8,0.1);	
+};
+
+
 CONTATO OBJ::colide(RAY *r){
 	CONTATO res (false,{0,0,0},{0,0,0});
 

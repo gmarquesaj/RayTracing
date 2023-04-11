@@ -12,11 +12,12 @@ struct RAY{
 
 struct CONTATO{
 	bool toque;
-	float dis=1000000;
+	float especular = 0.0;
+	float dis=10000;
 	vec3 pos,normal;
 	RAY *raio;
 	OBJ *obj;
 	CONTATO(bool toque,vec3 pos,vec3 normal);
-	void	reflexo();
+	bool	reflexo();
 };
 

@@ -9,6 +9,7 @@ class vec3
 		float x, y, z;
 		void print();
 		// construtor
+		vec3(float v);
 		vec3(float x, float y, float z);
 		// construtor via copia
 		vec3(const vec3 &cpy);

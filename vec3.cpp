@@ -1,5 +1,9 @@
 #include "vec3.hpp"
 
+vec3::vec3(float v):x(v),y(v),z(v)
+{
+
+};
 
 void vec3::print()
 {

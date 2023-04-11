@@ -10,5 +10,7 @@ struct OBJ
 	float raio;
 	CONTATO colide(RAY *r);
 	MAT *material;
+	vec3 corEm(float u, float v);
+	vec3 normalToUV(vec3 normal);
 	OBJ(vec3 pos,float raio, MAT *material);
 };
