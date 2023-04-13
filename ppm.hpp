@@ -1,6 +1,8 @@
 #pragma once
 #include<iostream>
+#include <thread>
 #include<vector>
+using std::thread;
 using std::vector;
 struct PPM
 {

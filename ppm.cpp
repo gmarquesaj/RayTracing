@@ -2,15 +2,36 @@
 
 void PPM::paraCadaPX(void( *func)(PPM*,int, int,int,float,float)){
 
-	for(int y=0;y<h;y++)
+	vector<thread> th;
+	int nth = 16;
+	int p = h/nth;
+	for(int i=0;i<nth;i++)
 	{
-		float v = (float)y/(float)h;
-		for(int x=0;x<w;x++)
-		{
-			int pos = (3*w*y)+(3*x);
-			float u = (float)x/(float)w;
-			func(this,x,y,pos,u,v);
-		}
+		th.emplace_back([=](){
+
+
+				int ini = i*p;
+				int fim = i==nth-1?h:ini+p;
+				printf("ini = %d fim = %d\n",ini,fim);
+				for(int y=ini;y<fim;y++)
+				{
+				float v = (float)y/(float)h;
+
+				for(int x=0;x<w;x++)
+				{
+				int pos = (3*w*y)+(3*x);
+				float u = (float)x/(float)w;
+				func(this,x,y,pos,u,v);
+				}
+				}
+				printf("fim da thread %d\n",i+1);
+				});
+	}
+	for(int i=0;i<nth;i++)
+	{
+		if(th[i].joinable())
+			th[i].join();
+
 	}
 };
 PPM::PPM(int w,int h):w(w),h(h)
