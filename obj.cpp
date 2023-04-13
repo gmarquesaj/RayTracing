@@ -13,7 +13,7 @@ vec3 OBJ:: normalToUV(vec3 normal)
 //funciona como uma textura provisoria ate que seja implementado uma classe de texturas
 //desenha faixas/linhas na esfera
 vec3 OBJ:: corEm(float u, float v){
-	const int x = 500;
+	const int x = 50;
 	return ((int)(u*x)%10)<5  || ((int)(v*x)%15)<5 ?vec3(0,0,0):vec3(0.9,0.8,0.1);	
 };
 

@@ -26,6 +26,8 @@ class vec3
 		vec3 operator/(vec3 b);
 		float comprimento();
 		vec3 normalizado();
+		void clamp1();
+		void clamp1sqrt();
 
 };
 float dot(vec3 &u, vec3 &v);

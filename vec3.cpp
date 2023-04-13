@@ -1,5 +1,20 @@
 #include "vec3.hpp"
 
+void vec3::clamp1sqrt()
+{
+	x = x>1.0f?1.0f:x<0.0f?0.0f:sqrt(x);
+	y = y>1.0f?1.0f:y<0.0f?0.0f:sqrt(y);
+	z = z>1.0f?1.0f:z<0.0f?0.0f:sqrt(z);
+
+};
+
+void vec3::clamp1()
+{
+	x = x>1.0f?1.0f:x<0.0f?0.0f:x;
+	y = y>1.0f?1.0f:y<0.0f?0.0f:y;
+	z = z>1.0f?1.0f:z<0.0f?0.0f:z;
+
+};
 vec3::vec3(float v):x(v),y(v),z(v)
 {
 
