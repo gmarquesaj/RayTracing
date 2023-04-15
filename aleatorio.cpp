@@ -20,10 +20,10 @@ vec3 randomFloatVec3MinMax(float min, float max)
 
 
 vec3 randomHemisphereDirection(vec3 normal){
-vec3 dir = randomFloatVec3MinMax(-1,1).normalizado();
-if(dot(dir,normal)>0.0)
-	return dir;
-else return dir *-1;
+	vec3 dir = randomFloatVec3MinMax(-1,1).normalizado();
+	if(dot(dir,normal)>0.0)
+		return dir;
+	else return dir *-1;
 
 
 

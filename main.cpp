@@ -127,7 +127,7 @@ int main()
 	  */
 	//objs.emplace_back(vec3(0,-1.0,20),15.15f,&matLuz);
 	OSmateriais.reserve(100);
-	int n = 6;
+	int n = 3;
 	for(int y=0;y<n;y++)
 		for(int x=0;x<n;x++)
 		{
@@ -136,7 +136,7 @@ int main()
 			OSmateriais.push_back(MAT(/*x%2==0?vec3(0.9,0.1,0.1):y%2==0?vec3(0.1,0.9,0.1):vec3(0.1,0.1,0.9)*/vec3(0.9,0.1,0.1),r,e,DIFUSO));
 			objs.emplace_back(vec3(x*0.55-1.3,y*-0.6+1.5,-1),0.3f,&OSmateriais[x+y*5]);	
 		}
-	PPM img(550,550);
+	PPM img(1550,1550);
 	img.paraCadaPX(&rt);
 	img.save();
 

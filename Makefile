@@ -1,12 +1,16 @@
 comp = g++ -O3 
-all: vec3.o aleatorio.o ray.o main.o ppm.o obj.o
+all: vec3.o aleatorio.o ray.o main.o ppm.o obj.o aabb.o
 	rm -f *.ppm *.png
 	clear
-	$(comp) obj.o aleatorio.o ray.o main.o ppm.o vec3.o -o rtApp  && ./rtApp && ffmpeg -i img.ppm img.png -y 
+	$(comp) obj.o aleatorio.o ray.o main.o ppm.o vec3.o aabb.o -o rtApp  && ./rtApp
+	ffmpeg -i img.ppm img.png -y -nostats -loglevel 0 
 	xdg-open img.png
 
 main.o: main.cpp
 	$(comp) -c  main.cpp
+	
+aabb.o: aabb.cpp
+	$(comp) -c  aabb.cpp
 	
 ray.o:	ray.cpp
 	$(comp) -c ray.cpp

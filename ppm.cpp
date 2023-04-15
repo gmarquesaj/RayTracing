@@ -50,7 +50,22 @@ void PPM::setPxl(int x,int y,int r,int g,int b)
 	pxl[pos+2]=b;
 
 };
-void PPM::save()
+void PPM:: setPxl(int x,int y,vec3 cor){
+
+	int pos = (3*w*y)+(3*x);
+	pxl[pos]=cor.x;
+	pxl[pos+1]=cor.y;
+	pxl[pos+2]=cor.z;
+};
+void PPM::save(string caminho)
+{
+	FILE *f = fopen(caminho.c_str(),"wb");
+	fprintf(f,"P6\n%d %d\n%d\n",w,h,255);
+	fwrite(pxl.data(),w*h*sizeof(unsigned char)*3,1,f);
+	fclose(f);
+}
+
+void PPM::saveP3()
 {
 	FILE *f = fopen("img.ppm","w");
 	fprintf(f,"P3\n%d %d\n%d\n",w,h,256);
