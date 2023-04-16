@@ -117,6 +117,9 @@ vec3 vec3::operator/(vec3 b)
 	return vec3(x / b.x, y / b.y, z / b.z);
 }
 
+float & vec3:: operator[](int v){
+	return v==0?x:v==1?y:z;
+};
 vec3 operator-(float b, vec3 a)
 {
 	return vec3(a.x - b, a.y - b, a.z - b);

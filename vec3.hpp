@@ -18,7 +18,7 @@ class vec3
 		vec3 operator*(float b);
 		vec3 operator+(vec3 b);
 		vec3 operator*(vec3 b);
-
+		float & operator[](int v);
 		vec3 operator-(float b);
 		float comprimento2();
 		vec3 operator/(float b);

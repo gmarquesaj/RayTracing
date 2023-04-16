@@ -8,28 +8,21 @@
 #include<fstream>
 #include<cmath>
 #include"aleatorio.hpp"
+#include "arvore.hpp"
 using std::cout;
 using std::vector;
 using std::string;
 using std::to_string;
 using std::ifstream;
 using std::ofstream;
-void arcoIris(PPM *img,int x,int y, int pos, float u,float v)
-{
-	int r = u*250;
-	int g = v * 250;
-	int b = 255-r;
-	img->setPxl(x,y,r,g,b);
-
-};
-
-vector<OBJ> objs;
+arvore arv;
+//vector<OBJ> objs;
 CONTATO objMaisProximo(RAY *raio)
 {
 	CONTATO res(false,vec3(t_max,t_max,t_max),vec3(t_max,t_max,t_max));
-	for(int i=0;i<objs.size();i++)
+	for(int i=0;i<	arv.objs.size();i++)
 	{
-		OBJ *obj = &objs[i];
+		OBJ *obj = &	arv.objs[i];
 		if(obj==NULL)
 		{
 			cout << "Ponteiro nulo\n";
@@ -72,15 +65,15 @@ vec3 shade(CONTATO &c)
 }
 void rt(PPM *img,int x,int y, int pos, float u,float v)
 {
-#define saltos 10
-#define amostras 10
+#define saltos 5
+#define amostras 20
 	u=u*2-1;
 	v=v*2-1;
 	vec3 corFinal(0,0,0);
 	int amostra =0;
 	for(;amostra <amostras;amostra++)
 	{
-		RAY raio(vec3(0,0,1),vec3(u,v,-1));
+		RAY raio(vec3(0,0,0),vec3(u,v,-1));
 		int i=0;
 
 		CONTATO info = objMaisProximo(&raio);
@@ -116,27 +109,18 @@ int main()
 	const int d = 10;
 	MAT matChao=MAT(vec3(0.1,0.1,0.05),0.5f,0.85f,DIFUSO);
 	MAT matLuz =MAT(vec3(1.0),0.5f,0.5f,EMISSOR);
-
-
-	//objs.emplace_back(vec3(0,0,-2),0.5,&matChao);
-
-	/*objs.emplace_back(vec3(0,0,-chao-d),chao,&matChao);
-	  objs.emplace_back(vec3(0,chao+d,-1),chao,&matChao);
-	  objs.emplace_back(vec3(-chao-d,0,-1),chao,&matChao);
-	  objs.emplace_back(vec3(chao+d,0,-1),chao,&matChao);
-	  */
-	//objs.emplace_back(vec3(0,-1.0,20),15.15f,&matLuz);
 	OSmateriais.reserve(100);
-	int n = 3;
+	int n = 6;
 	for(int y=0;y<n;y++)
 		for(int x=0;x<n;x++)
 		{
 			float e = 1.0f-((float)x/(float)n);
 			float r = 1.0f-((float)y/(float)n);
-			OSmateriais.push_back(MAT(/*x%2==0?vec3(0.9,0.1,0.1):y%2==0?vec3(0.1,0.9,0.1):vec3(0.1,0.1,0.9)*/vec3(0.9,0.1,0.1),r,e,DIFUSO));
-			objs.emplace_back(vec3(x*0.55-1.3,y*-0.6+1.5,-1),0.3f,&OSmateriais[x+y*5]);	
+			OSmateriais.push_back(MAT(randomFloatVec3MinMax(0,1),r,0.5,DIFUSO));
+			arv.objs.emplace_back(vec3(x*0.55-1.3,y*-0.6+1.5,-1),0.3f,&OSmateriais[x+y*5]);	
 		}
-	PPM img(1550,1550);
+	PPM img(550,550);
+
 	img.paraCadaPX(&rt);
 	img.save();
 

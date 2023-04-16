@@ -1,19 +1,10 @@
 #pragma once
-
 #include "obj.hpp"
 
-
-
-class aabb{
+class caixa{
 	public:
-		vec3 minimo;
-		vec3 maximo;
-		OBJ * objDir;
-		OBJ * objEsq;
-		aabb * caixaDir;
-		aabb * caixaEsq;
-		aabb();
-		aabb(vec3 min,vec3 max,OBJ * objDir,OBJ * objEsq,aabb * caixaDir,aabb * caixaEsq);
-		aabb(aabb * caixaDir,aabb * caixaEsq);
-		aabb(OBJ * objDir,OBJ * objEsq);
+		vec3 minimo,maximo;
+		int indEsq,indDir;
+		caixa(vec3 minimo, vec3 maximo,int indEsq, int indDir);
 };
+
