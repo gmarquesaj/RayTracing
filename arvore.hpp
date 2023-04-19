@@ -18,11 +18,17 @@ using std::ofstream;
 
 class arvore{
 	public:
+		MAT matNulo ;
 		vector<OBJ> objs;
+		vector<int> indices;
 		vector<caixa> caixas;
 		bool ultimaCamada(int v);
+		int nosNaUltimaCamada();
 		void adicionaObj(OBJ obj);
-		void calcCaixas();
+		void calcCaixas(int ini, int fim,int c);
+		void print();
+		void popularArvore();
 		void ordenar(int ini, int fim, int elemento);
 		void trocar(int a,int b);
+		arvore();
 };

@@ -45,7 +45,14 @@ CONTATO OBJ::colide(RAY *r){
 	return res;
 };
 
-OBJ::OBJ(vec3 pos,float raio, MAT *material):pos(pos),raio(raio),material(material)
+OBJ::OBJ(vec3 pos,float raio, MAT *material):pos(pos),raio(raio),material(material),minCaixa(pos-vec3(raio)),maxCaixa(pos+vec3(raio))
 
 {
+/*	
+ *	minCaixa.print();
+	maxCaixa.print();
+	cout <<"\n";
+
+	*/
 };
+

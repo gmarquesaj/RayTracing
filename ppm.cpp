@@ -12,7 +12,7 @@ void PPM::paraCadaPX(void( *func)(PPM*,int, int,int,float,float)){
 
 				int ini = i*p;
 				int fim = i==nth-1?h:ini+p;
-				printf("ini = %d fim = %d\n",ini,fim);
+				//printf("ini = %d fim = %d\n",ini,fim);
 				for(int y=ini;y<fim;y++)
 				{
 				float v = (float)y/(float)h;
@@ -24,7 +24,7 @@ void PPM::paraCadaPX(void( *func)(PPM*,int, int,int,float,float)){
 				func(this,x,y,pos,u,v);
 				}
 				}
-				printf("fim da thread %d\n",i+1);
+				//printf("fim da thread %d\n",i+1);
 				});
 	}
 	for(int i=0;i<nth;i++)

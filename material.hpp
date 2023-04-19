@@ -13,7 +13,7 @@ class MAT
 		float rugosidade;
 		float especular;
 		int tipo;
-		MAT(vec3 albedo,float rugosidade,float especular, int tipo):rugosidade(rugosidade),especColor(vec3(0.9)),albedo(albedo),tipo(tipo),especular(especular)
+		MAT(vec3 albedo,float rugosidade,float especular, int tipo):rugosidade(rugosidade),especColor(vec3(1.0)),albedo(albedo),tipo(tipo),especular(especular)
 	{
 
 	}

@@ -2,7 +2,11 @@
 #include <cmath>
 #include<iostream>
 using std::cout;
+#define corVERM vec3(0.9,0.2,0.2)
+#define corVERD vec3(0.2,0.9,0.2)
+#define corAZUL vec3(0.2,0.2,0.9)
 
+#define corAMAR vec3(0.9,0.9,0.2)
 class vec3
 {
 	public:

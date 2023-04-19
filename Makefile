@@ -1,4 +1,4 @@
-comp = g++ -O3 
+comp = g++ -O3
 all: vec3.o aleatorio.o ray.o main.o ppm.o obj.o aabb.o arvore.o
 	rm -f *.ppm *.png
 	clear
@@ -35,5 +35,7 @@ aleatorio.o: aleatorio.cpp
 clean:	
 	rm -f *.o
 	clear
-#vec3.o: vec3.cpp
-#	$(comp) -c  vec3.cpp
+
+
+
+

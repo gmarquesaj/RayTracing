@@ -11,6 +11,6 @@ tabedit ray.hpp
 tabedit material.hpp
 tabedit aleatorio.cpp
 tabedit aleatorio.hpp
-tabedit ppm.cpp
-tabedit ppm.hpp
+#tabedit ppm.cpp
+#tabedit ppm.hpp
 tabedit Makefile
